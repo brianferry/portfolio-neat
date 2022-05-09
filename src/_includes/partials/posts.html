@@ -1,0 +1,26 @@
+<div id="main">    
+        {% for post in posts %}
+        <bfi-post 
+            title="{{ post.data.title }}"
+            publishDate="{{ post.date | readableDate }}"
+            url="{{ post.url }}"
+        >
+            <div slot="content">{{ post.data.description | safe }}</div>
+        </bfi-post>
+        {% endfor %}
+
+        <nav aria-labelledby="pager">
+            {% if pagination.href.previous %}
+                <bfi-button url="{{ pagination.href.previous }}" text="Previous" paddingright></bfi-button>
+            {% else %}
+                Previous
+            {% endif %}
+            {% if pagination.href.next %}
+                <bfi-button url="{{ pagination.href.next }}" text="Next" paddingleft></bfi-button>
+            {% else %}
+                Next
+            {% endif %}
+        </nav>
+  </div>
+  <bfi-sidebar></bfi-sidebar>
+</div>

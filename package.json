@@ -1,17 +1,27 @@
 {
+  "name": "portfolio-starter",
+  "workspaces": [
+    "packages/*",
+    "packages/atoms/bfi-header"
+  ],
   "scripts": {
-    "start": "npm-run-all --parallel css eleventy browsersync",
+    "start": "rm -rf _site/ && npm-run-all --parallel css eleventy browsersync",
     "eleventy": "eleventy --watch",
     "debug": "set DEBUG=* & eleventy",
-    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
+    "css": "postcss src/static/css/*.css --dir _site/static/css/ --watch",
+    "lerna:start": "lerna run start",
+    "lerna:start:watch": "lerna run start:watch",
     "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css",
-    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open"
+    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
+    "rollup:bundle": "rm -rf output/ && rollup --config rollup.config.js",
+    "build:prod": "npm run rollup:bundle && npm run build"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@tailwindcss/typography": "^0.5.0",
-    "alpinejs": "^3.7.1",
+    "@web/dev-server": "^0.1.31",
     "browser-sync": "^2.27.7",
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.15",
@@ -24,7 +34,10 @@
     "tailwindcss": "^3.0.13"
   },
   "dependencies": {
+    "@web/rollup-plugin-copy": "^0.3.0",
     "autoprefixer": "^10.4.2",
+    "commitizen": "^4.2.4",
+    "lit": "^2.2.3",
     "postcss": "^8.4.5"
   }
 }

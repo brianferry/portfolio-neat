@@ -11,25 +11,25 @@
       <meta name="description" content="{{description}}"/>
     {% endif %}
     {% block head %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fontawesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/tailwind.css"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900"/>
     {% if prism == true %}
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="/output/main.bundle.js"></script>
   </head>
   <body>
-    {% include "./partials/navbar.html" %}
+    <div id="wrapper">
+        <bfi-navigation></bfi-navigation>
+        {% if path == "home" %}
+          {% include "./partials/posts.html" %}
+        {% else %}
 
-    {{ content | safe }}
-
-    {% include "./partials/footer.html" %}
-
-    <script src="/static/js/alpine.js"></script>
-
-    {% if path == "home" %}
-      <!-- Netlify Identity Widget -->
-      <!-- Needed only if you are using Netlify Identity feature -->
-      <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    {% endif %}
-
+          {{ content | safe }}
+        
+        {% endif %}
+      </div>
   </body>
 </html>

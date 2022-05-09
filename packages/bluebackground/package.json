@@ -1,0 +1,29 @@
+{
+  "name": "blue-background",
+  "version": "1.0.0",
+  "description": "blue background",
+  "main": "blue-background.js",
+  "module": "blue-background.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server --open demo/ --node-resolve",
+    "start:watch": "web-dev-server --open demo/ --node-resolve --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianferry/neat-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianferry/neat-starter/issues"
+  },
+  "homepage": "https://github.com/brianferry/neat-starter#readme",
+  "dependencies": {
+    "lit-element": "^3.2.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.31"
+  }
+}
