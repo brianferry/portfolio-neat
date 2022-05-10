@@ -1,8 +1,7 @@
 {
   "name": "portfolio-starter",
   "workspaces": [
-    "packages/*",
-    "packages/atoms/bfi-header"
+    "packages/*"
   ],
   "scripts": {
     "start": "rm -rf _site/ && npm-run-all --parallel css eleventy browsersync",

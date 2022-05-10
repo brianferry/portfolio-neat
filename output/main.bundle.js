@@ -763,7 +763,7 @@ class BfiSidebar extends s {
     <section id="sidebar">
 
         <section id="intro">
-            <a href="#" class="logo"><img src="./static/img/logo.jpg" alt="" /></a>
+            <a href="#" class="logo"><img src="./static/img/bf-image.jpg" alt="" /></a>
             <header>
                 <bfi-header><h2>Future Imperfect</h2></bfi-header>
                 <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
